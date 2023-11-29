@@ -3,7 +3,7 @@ import { Room } from "./room.ts";
 import { ImpressionStat } from "./impression_stat.ts";
 import { Action } from "./action.ts";
 export class Environment {
-	readonly #members: Person[];
+	readonly #people: Person[];
 	readonly rooms = new Room[0];
 	readonly #w: number;
 	readonly #d: number;
@@ -11,8 +11,8 @@ export class Environment {
 	readonly #a: number;
 	readonly #m: number;
 	readonly #evaluate: (rooms: Room[]) => number;
-	constructor(members: Person[], w: number, d: number, s: number, a: number, m: number, evaluate: (rooms: Room[]) => number) {
-		this.#members = members;
+	constructor(people: Person[], w: number, d: number, s: number, a: number, m: number, evaluate: (rooms: Room[]) => number) {
+		this.#people = people;
 		this.#w = w;
 		this.#d = d;
 		this.#s = s;
