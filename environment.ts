@@ -10,8 +10,8 @@ export class Environment {
 	readonly #s: number;
 	readonly #a: number;
 	readonly #m: number;
-	readonly #evaluate: (rooms: Room[]) => number;
-	constructor(people: Person[], w: number, d: number, s: number, a: number, m: number, evaluate: (rooms: Room[]) => number) {
+	readonly #evaluate: (happinesses: number[]) => number;
+	constructor(people: Person[], w: number, d: number, s: number, a: number, m: number, evaluate: (happinesses: number[]) => number) {
 		this.#people = people;
 		this.#w = w;
 		this.#d = d;
