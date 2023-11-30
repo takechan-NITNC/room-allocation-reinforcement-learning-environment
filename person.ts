@@ -1,10 +1,14 @@
 export class Person {
 	readonly name: string;
-	likedPeople: Person[];
-	dislikedPeople: Person[];
-	constructor(name: string, likedPeople: Person[], dislikedPeople: Person[]) {
+	readonly likedPeople = Person[0];
+	readonly dislikedPeople = Person[0];
+	constructor(name: string) {
 		this.name = name;
-		this.likedPeople = likedPeople;
-		this.dislikedPeople = dislikedPeople;
+	}
+	likes(...person: Person[]): void {
+
+	}
+	dislikes(...person: Person[]): void {
+
 	}
 }
