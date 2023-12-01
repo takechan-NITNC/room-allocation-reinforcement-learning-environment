@@ -89,7 +89,7 @@
 その人が「同室拒否」としている人を設定する（`dislikedPeople`に人を追加する）
 ### 使用例
 ```ts
-import { People } from "https://github.com/takechan-NITNC/room-allocation-reinforcement-learning-environment/raw/interface/person.ts"
+import { People } from "https://raw.githubusercontent.com/takechan-NITNC/room-allocation-reinforcement-learning-environment/v0.0.0/person.ts"
 const sato = new People("佐藤");
 const suzuki = new People("鈴木");
 const tanaka = new People("田中");
