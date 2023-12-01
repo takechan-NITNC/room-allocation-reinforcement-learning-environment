@@ -4,7 +4,7 @@ import { ImpressionStat } from "./impression_stat.ts";
 import { Action } from "./action.ts";
 export class Environment {
 	readonly #people: Person[];
-	readonly rooms = new Room[0];
+	readonly rooms: Room[] = [];
 	readonly #w: number;
 	readonly #d: number;
 	readonly #s: number;
