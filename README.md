@@ -62,7 +62,7 @@
 部屋のメンバー一覧
 ### メソッド
 #### `constructor`
-`Room`型インスタンスを初期化する
+インスタンスの生成を行う
 
 普通にプログラミングしてればエージェント側で使うことは無いはず
 ## `Person`
@@ -72,12 +72,8 @@
 名前
 #### `likedPeople`
 その人が「同室希望」としている人の一覧
-
-普通にプログラミングしてれば`likes`メソッドを経由せずアクセスすることは無いはず
 #### `dislikedPeople`
 その人が「同室拒否」としている人の一覧
-
-普通にプログラミングしてれば`dislikes`メソッドを経由せずアクセスすることは無いはず
 ### メソッド
 #### `constructor`
 `Person`型インスタンスを生成する
@@ -89,7 +85,7 @@
 その人が「同室拒否」としている人を設定する（`dislikedPeople`に人を追加する）
 ### 使用例
 ```ts
-import { People } from "https://github.com/takechan-NITNC/room-allocation-reinforcement-learning-environment/raw/interface/person.ts"
+import { People } from "https://raw.githubusercontent.com/takechan-NITNC/room-allocation-reinforcement-learning-environment/v0.0.0/person.ts"
 const sato = new People("佐藤");
 const suzuki = new People("鈴木");
 const tanaka = new People("田中");
