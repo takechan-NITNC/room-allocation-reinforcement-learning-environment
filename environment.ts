@@ -3,16 +3,14 @@ import { Room } from "./room.ts";
 import { ImpressionStat } from "./impression_stat.ts";
 import { Action } from "./action.ts";
 export class Environment {
-	readonly #people: Person[];
-	readonly rooms: Room[] = [];
+	readonly rooms = new Set<Room>();
 	readonly #w: number;
 	readonly #d: number;
 	readonly #s: number;
 	readonly #a: number;
 	readonly #m: number;
 	readonly #evaluate: (happinesses: number[]) => number;
-	constructor(people: Person[], w: number, d: number, s: number, a: number, m: number, evaluate: (happinesses: number[]) => number) {
-		this.#people = people;
+	constructor(people: Set<Person>, w: number, d: number, s: number, a: number, m: number, evaluate: (happinesses: number[]) => number) {
 		this.#w = w;
 		this.#d = d;
 		this.#s = s;
