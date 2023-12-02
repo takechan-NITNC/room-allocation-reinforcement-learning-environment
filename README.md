@@ -94,3 +94,6 @@ suzuki.likes(sato, tanaka);
 tanaka.likes(sato);
 tanaka.dislikes(suzuki);
 ```
+# 関数
+## `snatchRandomElement`
+集合からランダムな要素を取り出し，その要素を元の集合から削除する
