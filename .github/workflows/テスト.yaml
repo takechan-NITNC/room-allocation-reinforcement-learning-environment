@@ -1,6 +1,6 @@
 on: pull_request
 jobs:
-  テスト:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: denoland/setup-deno@v1.1.3
