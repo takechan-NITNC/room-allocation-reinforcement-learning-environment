@@ -126,6 +126,38 @@ tanaka.dislikes(suzuki);
 インスタンスを生成する
 
 エラーを生成するのは環境側なので，エージェント側から触ることは無いと思う
+## `ContradictoryImpressionsErrorCause`
+`ContradictoryImpressionsError`の原因を示す
+### フィールド
+#### `from`
+矛盾する希望を持ちそうになった人
+#### `to`
+矛盾する希望を持たれそうになった人
+### メソッド
+#### constructor
+インスタンスを生成する
+
+エラーを生成するのは環境側なので，エージェント側から触ることは無いと思う
+## `ContradictoryImpressionsError`
+１人の人が同じ人に対して「同室希望」「同室拒否」の両方を設定しようとしたときに発生するエラー
+
+`Error`を継承している
+### フィールド
+#### `name`
+「ContradictoryImpressionsError」
+#### `message`
+エラーメッセージ
+#### `cause`
+エラーの原因
+
+`ContradictoryImpressionsErrorCause`型
+#### `stack`
+スタックトレース
+### メソッド
+#### constructor
+インスタンスを生成する
+
+エラーを生成するのは環境側なので，エージェント側から触ることは無いと思う
 # 関数
 ## `snatchRandomElement`
 集合からランダムな要素を取り出し，その要素を元の集合から削除する
