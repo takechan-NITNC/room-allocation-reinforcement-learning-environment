@@ -30,7 +30,7 @@
 ## `ImpressionStat`
 １人の人に対し，その人を「同室希望」「同室拒否」とした人が何人いるかを１つの部屋で集計したもの
 
-`Environment`の`getState()`は状態として`ImpressionStat[]`型の戻り値を返す
+`Environment`の`getState()`は状態として`ImpressionStat[][]`型の戻り値を返す
 ### フィールド
 #### `likeCount`
 集計対象の部屋でその人を「同室希望」とした人の人数

@@ -18,7 +18,7 @@ export class Environment {
 		this.#m = m;
 		this.#evaluate = evaluate;
 	}
-	getState(): ImpressionStat[] {
+	getState(): ImpressionStat[][] {
 		return [];
 	}
 	receive(action: Action): number {
