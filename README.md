@@ -21,16 +21,16 @@
 - `evaluate`：評価関数，各人の幸福度を`number[]`で受け取って`number`を返す
 #### `getState`
 環境の状態を取得する
-#### `receive`
-環境に対して行動を行う（環境から見れば行動を「受ける」）
 #### `getEvaluationValue`
 評価関数の値を取得できる
 
 学習度合いの確認などにどうぞ
+#### `receive`
+環境に対して行動を行う（環境から見れば行動を「受ける」）
 ## `ImpressionStat`
 １人の人に対し，その人を「同室希望」「同室拒否」とした人が何人いるかを１つの部屋で集計したもの
 
-`Environment`の`getState()`は状態として`ImpressionStat[]`型の戻り値を返す
+`Environment`の`getState()`は状態として`ImpressionStat[][]`型の戻り値を返す
 ### フィールド
 #### `likeCount`
 集計対象の部屋でその人を「同室希望」とした人の人数
@@ -94,3 +94,38 @@ suzuki.likes(sato, tanaka);
 tanaka.likes(sato);
 tanaka.dislikes(suzuki);
 ```
+## `NotIntegerErrorCause`
+`NotIntegerError`の原因を示す
+### フィールド
+#### `valueName`
+整数であったはずの引数の名前
+#### `value`
+整数であったはずの引数の値
+### メソッド
+#### constructor
+インスタンスを生成する
+
+エラーを生成するのは環境側なので，エージェント側から触ることは無いと思う
+## `NotIntegerError`
+整数を受け取るはずの引数に整数でない値を入れたときに発生するエラー
+
+`RangeError`を継承している
+### フィールド
+#### `name`
+「NotIntegerError」
+#### `message`
+エラーメッセージ
+#### `cause`
+エラーの原因
+
+`NotIntegerErrorCause`型
+#### `stack`
+スタックトレース
+### メソッド
+#### constructor
+インスタンスを生成する
+
+エラーを生成するのは環境側なので，エージェント側から触ることは無いと思う
+# 関数
+## `snatchRandomElement`
+集合からランダムな要素を取り出し，その要素を元の集合から削除する
