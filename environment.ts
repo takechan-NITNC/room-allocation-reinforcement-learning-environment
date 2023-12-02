@@ -94,10 +94,10 @@ export class Environment {
 	}
 	receive(action: Action): number {
 		if (!(action.memberIndex1 > 0 && action.memberIndex1 <= this.#m * this.#a)) {
-			throw new RangeError(`memberIndex1（${action.memberIndex1}）は1～${this.#m * this.#a}である必要があります。`);
+			throw new RangeError(`memberIndex1（${action.memberIndex1}）は${this.#m * this.#a}以下である必要があります。`);
 		}
 		if (!(action.memberIndex2 > 0 && action.memberIndex2 <= this.#m * this.#a)) {
-			throw new RangeError(`memberIndex2（${action.memberIndex2}）は1～${this.#m * this.#a}である必要があります。`);
+			throw new RangeError(`memberIndex2（${action.memberIndex2}）は${this.#m * this.#a}以下である必要があります。`);
 		}
 		const evaluationValue = this.getEvaluationValue();
 		const room1 = this.#attendedRooms.find((attendedRoom) => {
