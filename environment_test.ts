@@ -378,30 +378,6 @@ Deno.test({
 	}
 });
 Deno.test({
-	name: "receive（memberIndex1が１未満）",
-	fn: function() {
-		const environment = new Environment(new Set([
-			new Person("人間１"),
-			new Person("人間２"),
-			new Person("人間３"),
-			new Person("人間４"),
-			new Person("人間５"),
-			new Person("人間６"),
-			new Person("人間７"),
-			new Person("人間８"),
-			new Person("人間９"),
-			new Person("人間10"),
-			new Person("人間11"),
-			new Person("人間12")
-		]), 1, -1, 0, 3, 2, function(_happinesses) {
-			return 9;
-		});
-		assertThrows(function() {
-			environment.receive(new Action(0, 2));
-		}, RangeError, "memberIndex1（0）は1～6である必要があります。");
-	}
-});
-Deno.test({
 	name: "receive（memberIndex1が大きすぎる）",
 	fn: function() {
 		const environment = new Environment(new Set([
@@ -422,31 +398,7 @@ Deno.test({
 		});
 		assertThrows(function() {
 			environment.receive(new Action(7, 2));
-		}, RangeError, "memberIndex1（7）は1～6である必要があります。");
-	}
-});
-Deno.test({
-	name: "receive（memberIndex2が１未満）",
-	fn: function() {
-		const environment = new Environment(new Set([
-			new Person("人間１"),
-			new Person("人間２"),
-			new Person("人間３"),
-			new Person("人間４"),
-			new Person("人間５"),
-			new Person("人間６"),
-			new Person("人間７"),
-			new Person("人間８"),
-			new Person("人間９"),
-			new Person("人間10"),
-			new Person("人間11"),
-			new Person("人間12")
-		]), 1, -1, 0, 3, 2, function(_happinesses) {
-			return 9;
-		});
-		assertThrows(function() {
-			environment.receive(new Action(1, 0));
-		}, RangeError, "memberIndex2（0）は1～6である必要があります。");
+		}, RangeError, "memberIndex1（7）は6以下である必要があります。");
 	}
 });
 Deno.test({
@@ -470,7 +422,7 @@ Deno.test({
 		});
 		assertThrows(function() {
 			environment.receive(new Action(1, 7));
-		}, RangeError, "memberIndex2（7）は1～6である必要があります。");
+		}, RangeError, "memberIndex2（7）は6以下である必要があります。");
 	}
 });
 Deno.test({
