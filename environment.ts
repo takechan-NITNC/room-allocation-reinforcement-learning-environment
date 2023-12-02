@@ -68,7 +68,7 @@ export class Environment {
 						return member.likedPeople.has(movablePerson);
 					}).length,
 					[...attendedRoom.members].filter(function(member) {
-						return member.likedPeople.has(movablePerson);
+						return member.dislikedPeople.has(movablePerson);
 					}).length
 				);
 			});
