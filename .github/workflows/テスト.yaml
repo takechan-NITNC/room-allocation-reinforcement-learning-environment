@@ -1,0 +1,8 @@
+on: pull_request
+jobs:
+  テスト:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: denoland/setup-deno
+      - uses: actions/checkout
+      - run: deno test
