@@ -245,6 +245,18 @@ tanaka.dislikes(suzuki);
 
 設定されそうになった人を表す`Person`型の値
 
+#### `stack`
+
+スタックトレース
+
+### メソッド
+
+#### `constructor`
+
+インスタンスを生成する
+
+エラーを生成するのは環境側なので，エージェント側から触ることは無いと思う
+
 # 関数
 
 ## `snatchRandomElement`
