@@ -1,4 +1,4 @@
-import { assert } from "https://deno.land/std@0.65.0/testing/asserts.ts";
+import { assert } from "./deps.ts";
 import { snatchRandomElement } from "./snatch_random_element.ts";
 
 Deno.test({

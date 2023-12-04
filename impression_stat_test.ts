@@ -1,4 +1,4 @@
-import { assertStrictEquals } from "https://deno.land/std@0.65.0/testing/asserts.ts";
+import { assertStrictEquals } from "./deps.ts";
 import { ImpressionStat } from "./impression_stat.ts";
 Deno.test({
   name: "constructor",

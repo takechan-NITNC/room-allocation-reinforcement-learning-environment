@@ -1,7 +1,4 @@
-import {
-  assertEquals,
-  assertStrictEquals,
-} from "https://deno.land/std@0.65.0/testing/asserts.ts";
+import { assertEquals, assertStrictEquals } from "./deps.ts";
 import {
   ContradictoryImpressionsError,
   ContradictoryImpressionsErrorCause,

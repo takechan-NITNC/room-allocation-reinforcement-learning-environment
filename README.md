@@ -147,7 +147,7 @@
 ### 使用例
 
 ```ts
-import { Person } from "https://raw.githubusercontent.com/takechan-NITNC/room-allocation-reinforcement-learning-environment/v0.0.0/person.ts";
+import { Person } from "https://raw.githubusercontent.com/takechan-NITNC/room-allocation-reinforcement-learning-environment/v1.0.0/mod.ts";
 const sato = new Person("佐藤");
 const suzuki = new Person("鈴木");
 const tanaka = new Person("田中");
