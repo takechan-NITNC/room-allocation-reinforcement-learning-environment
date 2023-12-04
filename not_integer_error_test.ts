@@ -1,5 +1,5 @@
 import { assertEquals, assertStrictEquals } from "./deps.ts";
-import { NotIntegerError, NotIntegerErrorCause } from "./not_integer_error.ts";
+import { NotIntegerError } from "./not_integer_error.ts";
 Deno.test({
   name: "NotIntegerErrorのconstructor",
   fn: function () {
@@ -10,15 +10,10 @@ Deno.test({
     );
     assertEquals(
       got.cause,
-      new NotIntegerErrorCause("整数じゃないといけない引数", 0.5),
+      {
+        valueName: "整数じゃないといけない引数",
+        value: 0.5,
+      },
     );
-  },
-});
-Deno.test({
-  name: "NotIntegerErrorCauseのconstructor",
-  fn: function () {
-    const got = new NotIntegerErrorCause("整数じゃないといけない引数", 1.5);
-    assertStrictEquals(got.valueName, "整数じゃないといけない引数");
-    assertStrictEquals(got.value, 1.5);
   },
 });

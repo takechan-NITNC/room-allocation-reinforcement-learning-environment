@@ -157,28 +157,6 @@ tanaka.likes(sato);
 tanaka.dislikes(suzuki);
 ```
 
-## `NotIntegerErrorCause`
-
-`NotIntegerError`の原因を示す
-
-### フィールド
-
-#### `valueName`
-
-整数であったはずの引数の名前
-
-#### `value`
-
-整数であったはずの引数の値
-
-### メソッド
-
-#### `constructor`
-
-インスタンスを生成する
-
-エラーを生成するのは環境側なので，エージェント側から触ることは無いと思う
-
 ## `NotIntegerError`
 
 整数を受け取るはずの引数に整数でない値を入れたときに発生するエラー
@@ -199,33 +177,11 @@ tanaka.dislikes(suzuki);
 
 エラーの原因
 
-`NotIntegerErrorCause`型
+`valueName`フィールドには整数であったはずの引数の名前が，`value`フィールドにはその引数の値が入っている
 
 #### `stack`
 
 スタックトレース
-
-### メソッド
-
-#### `constructor`
-
-インスタンスを生成する
-
-エラーを生成するのは環境側なので，エージェント側から触ることは無いと思う
-
-## `ContradictoryImpressionsErrorCause`
-
-`ContradictoryImpressionsError`の原因を示す
-
-### フィールド
-
-#### `from`
-
-矛盾する希望を持ちそうになった人
-
-#### `to`
-
-矛盾する希望を持たれそうになった人
 
 ### メソッド
 
@@ -255,7 +211,7 @@ tanaka.dislikes(suzuki);
 
 エラーの原因
 
-`ContradictoryImpressionsErrorCause`型
+誰から誰に対する希望が矛盾しているのかを`from`・`to`フィールドで表している
 
 #### `stack`
 
