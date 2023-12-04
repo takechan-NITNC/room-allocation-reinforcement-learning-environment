@@ -46,9 +46,13 @@ Deno.test({
     );
     assertEquals(sato.likedPeople, new Set<Person>());
     assertEquals(sato.dislikedPeople, new Set([tanaka]));
-    assertThrows(function() {
-      suzuki.likes(tanaka, suzuki);
-    }, SelfImpressionError, "自分自身（鈴木）に対して「同室希望」「同室拒否」を設定することはできません。");
+    assertThrows(
+      function () {
+        suzuki.likes(tanaka, suzuki);
+      },
+      SelfImpressionError,
+      "自分自身（鈴木）に対して「同室希望」「同室拒否」を設定することはできません。",
+    );
     assertEquals(suzuki.likedPeople, new Set([sato]));
     assertEquals(suzuki.dislikedPeople, new Set<Person>());
   },
@@ -71,9 +75,13 @@ Deno.test({
     );
     assertEquals(tanaka.likedPeople, new Set([suzuki]));
     assertEquals(tanaka.dislikedPeople, new Set<Person>());
-    assertThrows(function() {
-      tanaka.dislikes(sato, tanaka);
-    }, SelfImpressionError, "自分自身（田中）に対して「同室希望」「同室拒否」を設定することはできません。");
+    assertThrows(
+      function () {
+        tanaka.dislikes(sato, tanaka);
+      },
+      SelfImpressionError,
+      "自分自身（田中）に対して「同室希望」「同室拒否」を設定することはできません。",
+    );
     assertEquals(tanaka.likedPeople, new Set([suzuki]));
     assertEquals(tanaka.dislikedPeople, new Set<Person>());
   },
