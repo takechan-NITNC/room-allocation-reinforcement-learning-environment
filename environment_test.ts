@@ -6,8 +6,8 @@ import {
   assertArrayContains,
   assertStrictEquals,
   assertThrows,
-} from "https://deno.land/std@0.65.0/testing/asserts.ts";
-import { AssertionError } from "https://deno.land/std@0.208.0/assert/assertion_error.ts";
+} from "./deps.ts";
+import { AssertionError } from "./deps.ts";
 import { Action } from "./action.ts";
 function gcd(a: number, b: number): number {
   if (a < b) {

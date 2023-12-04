@@ -1,8 +1,4 @@
-import {
-  assertEquals,
-  assertStrictEquals,
-  assertThrows,
-} from "https://deno.land/std@0.65.0/testing/asserts.ts";
+import { assertEquals, assertStrictEquals, assertThrows } from "./deps.ts";
 import { Person } from "./person.ts";
 import { ContradictoryImpressionsError } from "./contradictory_impressions_error.ts";
 Deno.test({

@@ -1,7 +1,4 @@
-import {
-  assertStrictEquals,
-  assertThrows,
-} from "https://deno.land/std@0.65.0/testing/asserts.ts";
+import { assertStrictEquals, assertThrows } from "./deps.ts";
 import { Action } from "./action.ts";
 import { NotIntegerError } from "./not_integer_error.ts";
 
