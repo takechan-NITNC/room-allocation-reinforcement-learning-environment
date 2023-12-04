@@ -65,7 +65,7 @@ Deno.test({
   },
 });
 Deno.test({
-  name: "constructor（人数が３で割り切れない）",
+  name: "constructor（人数が12じゃない）",
   fn: function () {
     assertThrows(
       function () {
@@ -98,7 +98,7 @@ Deno.test({
         );
       },
       RangeError,
-      "人数（13）は3で割り切れる必要があります。",
+      "人数（13）は12である必要があります。",
     );
   },
 });
