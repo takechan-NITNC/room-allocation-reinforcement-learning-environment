@@ -1,6 +1,7 @@
 import { assertEquals, assertStrictEquals, assertThrows } from "./deps.ts";
 import { Person } from "./person.ts";
 import { ContradictoryImpressionsError } from "./contradictory_impressions_error.ts";
+import { SelfImpressionError } from "./self_impression_error.ts";
 Deno.test({
   name: "constructor",
   fn: function () {
@@ -33,18 +34,27 @@ Deno.test({
     const suzuki = new Person("鈴木");
     const tanaka = new Person("田中");
     sato.dislikes(tanaka);
-    suzuki.likes(sato, tanaka);
+    suzuki.likes(sato);
     tanaka.likes(sato);
     tanaka.likes(suzuki);
     assertThrows(
       function () {
-        sato.likes(tanaka);
+        sato.likes(suzuki, tanaka);
       },
       ContradictoryImpressionsError,
       "佐藤は田中に対して矛盾した希望を持っています。",
     );
     assertEquals(sato.likedPeople, new Set<Person>());
     assertEquals(sato.dislikedPeople, new Set([tanaka]));
+    assertThrows(
+      function () {
+        suzuki.likes(tanaka, suzuki);
+      },
+      SelfImpressionError,
+      "自分自身（鈴木）に対して「同室希望」「同室拒否」を設定することはできません。",
+    );
+    assertEquals(suzuki.likedPeople, new Set([sato]));
+    assertEquals(suzuki.dislikedPeople, new Set<Person>());
   },
 });
 Deno.test({
@@ -55,16 +65,24 @@ Deno.test({
     const tanaka = new Person("田中");
     sato.dislikes(tanaka);
     suzuki.likes(sato, tanaka);
-    tanaka.likes(sato);
     tanaka.likes(suzuki);
     assertThrows(
       function () {
-        tanaka.dislikes(suzuki);
+        tanaka.dislikes(sato, suzuki);
       },
       ContradictoryImpressionsError,
       "田中は鈴木に対して矛盾した希望を持っています。",
     );
-    assertEquals(tanaka.likedPeople, new Set([sato, suzuki]));
+    assertEquals(tanaka.likedPeople, new Set([suzuki]));
+    assertEquals(tanaka.dislikedPeople, new Set<Person>());
+    assertThrows(
+      function () {
+        tanaka.dislikes(sato, tanaka);
+      },
+      SelfImpressionError,
+      "自分自身（田中）に対して「同室希望」「同室拒否」を設定することはできません。",
+    );
+    assertEquals(tanaka.likedPeople, new Set([suzuki]));
     assertEquals(tanaka.dislikedPeople, new Set<Person>());
   },
 });

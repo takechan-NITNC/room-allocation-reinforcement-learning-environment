@@ -5,4 +5,5 @@ export * from "./impression_stat.ts";
 export * from "./not_integer_error.ts";
 export * from "./person.ts";
 export * from "./room.ts";
+export * from "./self_impression_error.ts";
 export * from "./snatch_random_element.ts";
