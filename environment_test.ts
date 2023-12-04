@@ -7,7 +7,6 @@ import {
   assertStrictEquals,
   assertThrows,
 } from "./deps.ts";
-import { AssertionError } from "./deps.ts";
 import { Action } from "./action.ts";
 function gcd(a: number, b: number): number {
   if (a < b) {
@@ -42,30 +41,26 @@ Deno.test({
       new Person("人間12"),
     ]);
     for (let i = 0; i < 1000000; i++) {
-      try {
-        const environment = new Environment(
-          people,
-          1,
-          -1,
-          0,
-          2,
-          1,
-          function (happinesses) {
-            return happinesses.reduce(function (previous, current) {
-              return previous + current;
-            });
-          },
-        );
-        assertStrictEquals(environment.rooms.size, 4);
-        assertArrayContains(
-          [...environment.rooms].flatMap(function (room) {
-            return [...room.members];
-          }),
-          [...people],
-        );
-      } catch (error) {
-        throw new AssertionError(error);
-      }
+      const environment = new Environment(
+        people,
+        1,
+        -1,
+        0,
+        2,
+        1,
+        function (happinesses) {
+          return happinesses.reduce(function (previous, current) {
+            return previous + current;
+          });
+        },
+      );
+      assertStrictEquals(environment.rooms.size, 4);
+      assertArrayContains(
+        [...environment.rooms].flatMap(function (room) {
+          return [...room.members];
+        }),
+        [...people],
+      );
     }
   },
 });
