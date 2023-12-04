@@ -5,6 +5,7 @@ import { Action } from "./action.ts";
 import { NotIntegerError } from "./not_integer_error.ts";
 import { snatchRandomElement } from "./snatch_random_element.ts";
 export class Environment {
+  static readonly PEOPLE_COUNT = 12;
   readonly rooms = new Set<Room>();
   #attendedRooms: Room[] = [];
   #movablePeople: Person[] = [];
@@ -37,9 +38,9 @@ export class Environment {
     m: number,
     evaluate: (happinesses: number[]) => number,
   ) {
-    if (people.size % Room.CAPACITY !== 0) {
+    if (people.size !== Environment.PEOPLE_COUNT) {
       throw new RangeError(
-        `人数（${people.size}）は${Room.CAPACITY}で割り切れる必要があります。`,
+        `人数（${people.size}）は${Environment.PEOPLE_COUNT}である必要があります。`,
       );
     }
     const snatched = new Set([...people]);
