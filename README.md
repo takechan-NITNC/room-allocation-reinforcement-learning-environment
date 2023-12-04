@@ -173,7 +173,7 @@ tanaka.dislikes(suzuki);
 
 ### メソッド
 
-#### constructor
+#### `constructor`
 
 インスタンスを生成する
 
@@ -207,7 +207,7 @@ tanaka.dislikes(suzuki);
 
 ### メソッド
 
-#### constructor
+#### `constructor`
 
 インスタンスを生成する
 
@@ -229,7 +229,7 @@ tanaka.dislikes(suzuki);
 
 ### メソッド
 
-#### constructor
+#### `constructor`
 
 インスタンスを生成する
 
@@ -263,7 +263,7 @@ tanaka.dislikes(suzuki);
 
 ### メソッド
 
-#### constructor
+#### `constructor`
 
 インスタンスを生成する
 
