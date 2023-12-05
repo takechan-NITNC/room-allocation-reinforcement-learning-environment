@@ -3,7 +3,6 @@ import { Person } from "./person.ts";
 import { NotIntegerError } from "./not_integer_error.ts";
 import {
   assert,
-  assertArrayContains,
   assertEquals,
   assertStrictEquals,
   assertThrows,
@@ -56,11 +55,11 @@ Deno.test({
         },
       );
       assertStrictEquals(environment.rooms.size, 4);
-      assertArrayContains(
-        [...environment.rooms].flatMap(function (room) {
+      assertEquals(
+        new Set([...environment.rooms].flatMap(function (room) {
           return [...room.members];
-        }),
-        [...people],
+        })),
+        people,
       );
       assertEquals(
         environment.allowedActions,
