@@ -15,6 +15,7 @@ export class Environment {
   readonly #a: number;
   readonly #m: number;
   readonly #evaluate: (happinesses: number[]) => number;
+  readonly allowedActions = new Set<Action>();
   #draw() {
     const snatchedRooms = new Set([...this.rooms]);
     this.#attendedRooms = [];
@@ -76,6 +77,19 @@ export class Environment {
     this.#m = m;
     this.#evaluate = evaluate;
     this.#draw();
+    for (
+      let memberIndex1 = 1;
+      memberIndex1 <= this.#movablePeople.length;
+      memberIndex1++
+    ) {
+      for (
+        let memberIndex2 = 1;
+        memberIndex2 <= this.#movablePeople.length;
+        memberIndex2++
+      ) {
+        this.allowedActions.add(new Action(memberIndex1, memberIndex2));
+      }
+    }
   }
   getState(): ImpressionStat[][] {
     return this.#movablePeople.map((movablePerson) => {
