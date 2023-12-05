@@ -93,6 +93,9 @@ export class Environment {
   }
   #getHappiness(person: Person, room: Room): number {
     return [...room.members].reduce((previous, current) => {
+      if (current === person) {
+        return previous;
+      }
       if (person.likedPeople.has(current)) {
         return previous + this.#w;
       } else if (person.dislikedPeople.has(current)) {
