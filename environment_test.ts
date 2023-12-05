@@ -4,6 +4,7 @@ import { NotIntegerError } from "./not_integer_error.ts";
 import {
   assert,
   assertArrayContains,
+  assertEquals,
   assertStrictEquals,
   assertThrows,
 } from "./deps.ts";
@@ -60,6 +61,15 @@ Deno.test({
           return [...room.members];
         }),
         [...people],
+      );
+      assertEquals(
+        environment.allowedActions,
+        new Set<Action>([
+          new Action(1, 1),
+          new Action(1, 2),
+          new Action(2, 1),
+          new Action(2, 2),
+        ]),
       );
     }
   },
